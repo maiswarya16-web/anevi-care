@@ -910,7 +910,19 @@ if st.session_state.get("selected_patient") is not None:
 # CONSULTATION DETAILS
 # =========================================================
 
-st.subheader("🩺 Consultation Details")
+st.markdown("""
+<div class="saathi-card">
+
+<h2 style="margin-bottom:6px;">
+🩺 Consultation Details
+</h2>
+
+<p style="color:#64748b; margin-top:0;">
+Record the patient's current health concerns and medical history
+</p>
+
+</div>
+""", unsafe_allow_html=True)
 
 # ---------------------------------------------------------
 # USE SELECTED PATIENT DETAILS
