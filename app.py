@@ -904,14 +904,7 @@ if st.session_state.get("selected_patient") is not None:
 # CONSULTATION NOTES
 # ---------------------------------------------------------
 
-medical_history = st.text_area(
-    "📋 Medical History",
-    placeholder=(
-        "Example: Diabetes, hypertension, previous surgery, "
-        "TB history, pregnancy history, etc."
-    ),
-    height=80
-)
+
 patient_notes = st.text_area(
     "Relevant Patient Notes",
     placeholder=(
@@ -942,6 +935,15 @@ symptoms = st.text_area(
 symptom_duration = st.text_input(
     "⏱️ Symptom Duration",
     placeholder="Example: 2 days, 1 week, 3 months"
+)
+
+medical_history = st.text_area(
+    "📋 Medical History",
+    placeholder=(
+        "Example: Diabetes, hypertension, previous surgery, "
+        "TB history, pregnancy history, etc."
+    ),
+    height=80
 )
 
 # =========================================================
