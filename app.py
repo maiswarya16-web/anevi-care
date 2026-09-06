@@ -998,6 +998,66 @@ with col2:
         ),
         height=100
     )
+
+# =========================================================
+# VITAL SIGNS
+# =========================================================
+
+st.markdown("""
+<div class="saathi-card">
+
+<h2 style="margin-bottom:6px;">
+📊 Vital Signs
+</h2>
+
+<p style="color:#64748b; margin-top:0;">
+Record the patient's current vital measurements
+</p>
+
+</div>
+""", unsafe_allow_html=True)
+
+col1, col2 = st.columns(2)
+
+with col1:
+    temperature = st.text_input(
+        "🌡️ Temperature",
+        placeholder="Example: 98.6 °F"
+    )
+
+with col2:
+    blood_pressure = st.text_input(
+        "🩸 Blood Pressure",
+        placeholder="Example: 120/80 mmHg"
+    )
+
+col1, col2 = st.columns(2)
+
+with col1:
+    blood_sugar = st.text_input(
+        "🩸 Blood Sugar",
+        placeholder="Example: 110 mg/dL"
+    )
+
+with col2:
+    weight = st.text_input(
+        "⚖️ Weight",
+        placeholder="Example: 60 kg"
+    )
+
+col1, col2 = st.columns(2)
+
+with col1:
+    pulse_rate = st.text_input(
+        "❤️ Pulse Rate",
+        placeholder="Example: 72 bpm"
+    )
+
+with col2:
+    spo2 = st.text_input(
+        "🫁 SpO₂",
+        placeholder="Example: 98%"
+    )
 # =========================================================
 # HEALTH TOPIC
 # =========================================================
