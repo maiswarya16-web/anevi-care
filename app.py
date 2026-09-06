@@ -998,7 +998,7 @@ with col1:
             "Example: Diabetes, hypertension, previous surgery, "
             "TB history, pregnancy history, etc."
         ),
-        height=100
+        height=180
     )
 
 # =========================================================
