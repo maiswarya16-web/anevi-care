@@ -1017,12 +1017,12 @@ medical_history = st.text_area(
 st.markdown("""
 <div class="saathi-card">
 
-<h2 style="margin-bottom:6px;">
-📊 Vital Signs
+<h2 style="margin-bottom:4px;">
+📊 Vital Signs & Measurements
 </h2>
 
 <p style="color:#64748b; margin-top:0;">
-Record the patient's current vital measurements
+Record the patient's current measurements
 </p>
 
 </div>
