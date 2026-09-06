@@ -948,7 +948,19 @@ if st.session_state.get("selected_patient") is not None:
 # CONSULTATION NOTES
 # ---------------------------------------------------------
 
-st.markdown("### 📝 Health Concerns")
+st.markdown("""
+<div class="saathi-card">
+
+<h2 style="margin-bottom:6px;">
+📝 Health Concerns
+</h2>
+
+<p style="color:#64748b; margin-top:0;">
+Capture the patient's main health concerns and symptoms
+</p>
+
+</div>
+""", unsafe_allow_html=True)
 
 col1, col2 = st.columns(2)
 
