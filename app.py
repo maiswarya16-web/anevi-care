@@ -905,14 +905,7 @@ if st.session_state.get("selected_patient") is not None:
 # ---------------------------------------------------------
 
 
-patient_notes = st.text_area(
-    "Relevant Patient Notes",
-    placeholder=(
-        "Example: History of diabetes, hypertension, "
-        "pregnancy, etc."
-    ),
-    height=100
-)
+
 
 main_complaint = st.text_area(
     "🩺 Main Complaint",
@@ -946,6 +939,14 @@ medical_history = st.text_area(
     height=80
 )
 
+patient_notes = st.text_area(
+    "Relevant Patient Notes",
+    placeholder=(
+        "Example: History of diabetes, hypertension, "
+        "pregnancy, etc."
+    ),
+    height=100
+)
 # =========================================================
 # HEALTH TOPIC
 # =========================================================
