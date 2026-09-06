@@ -1069,6 +1069,14 @@ with col2:
         "🫁 SpO₂",
         placeholder="Example: 98%"
     )
+
+col1, col2 = st.columns(2)
+
+with col1:
+    respiratory_rate = st.text_input(
+        "🫁 Respiratory Rate",
+        placeholder="Example: 18 breaths/min"
+    )
 # =========================================================
 # HEALTH TOPIC
 # =========================================================
