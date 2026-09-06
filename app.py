@@ -860,7 +860,7 @@ st.subheader("🩺 Consultation Details")
 # USE SELECTED PATIENT DETAILS
 # ---------------------------------------------------------
 
-if "selected_patient" in st.session_state:
+if st.session_state.get("selected_patient") is not None:
 
     selected_patient = st.session_state.selected_patient
 
