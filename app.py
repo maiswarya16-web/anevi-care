@@ -989,17 +989,18 @@ symptom_duration = st.text_input(
     placeholder="Example: 2 days, 1 week, 3 months"
 )
 
-col1, col2 = st.columns(2)
+# ---------------------------------------------------------
+# MEDICAL HISTORY
+# ---------------------------------------------------------
 
-with col1:
-    medical_history = st.text_area(
-        "📋 Medical History",
-        placeholder=(
-            "Example: Diabetes, hypertension, previous surgery, "
-            "TB history, pregnancy history, etc."
-        ),
-        height=180
-    )
+medical_history = st.text_area(
+    "📋 Medical History",
+    placeholder=(
+        "Example: Diabetes, hypertension, previous surgery, "
+        "TB history, pregnancy history, etc."
+    ),
+    height=100
+)
 
 # =========================================================
 # VITAL SIGNS
