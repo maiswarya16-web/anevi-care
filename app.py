@@ -931,7 +931,7 @@ if st.session_state.get("selected_patient") is not None:
     st.write(f"**Age:** {patient_age}")
     st.write(f"**Gender:** {patient_gender}")
     st.write(f"**Village / Area:** {selected_patient['village']}")
-    )
+
 
 # ---------------------------------------------------------
 # CONSULTATION NOTES
