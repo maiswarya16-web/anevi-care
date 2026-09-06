@@ -1046,7 +1046,7 @@ col1, col2 = st.columns(2)
 
 with col1:
     blood_sugar = st.text_input(
-        "🩸 Blood Sugar",
+        "🩸 Blood Sugar (mg/dL)",
         placeholder="Example: 110 mg/dL"
     )
 
