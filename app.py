@@ -1038,7 +1038,7 @@ with col1:
 
 with col2:
     blood_pressure = st.text_input(
-        "🩸 Blood Pressure",
+        "🩸 Blood Pressure (mmHg)",
         placeholder="Example: 120/80 mmHg"
     )
 
