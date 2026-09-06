@@ -818,37 +818,93 @@ if st.session_state.current_page == "search_patient":
 
 
 # =========================================================
-# PATIENT SELECTION
+# PATIENT INFORMATION
 # =========================================================
 
-st.markdown(
-    "### 👤 Patient Information"
-)
+st.markdown("""
+<div class="saathi-card">
+
+<h2 style="margin-bottom:6px;">
+👤 Patient Information
+</h2>
+
+<p style="color:#64748b; margin-top:0;">
+Select an existing patient or register a new patient
+</p>
+
+</div>
+""", unsafe_allow_html=True)
 
 col1, col2 = st.columns(2)
 
 with col1:
-
     if st.button(
         "➕ Add New Patient",
         use_container_width=True,
         key="add_patient_button"
     ):
-
         st.session_state.current_page = "add_patient"
         st.rerun()
 
-
 with col2:
-
     if st.button(
         "🔍 Search Existing Patient",
         use_container_width=True,
         key="search_patient_button"
     ):
-
         st.session_state.current_page = "search_patient"
         st.rerun()
+
+# ---------------------------------------------------------
+# SELECTED PATIENT CARD
+# ---------------------------------------------------------
+
+if st.session_state.get("selected_patient") is not None:
+
+    selected_patient = st.session_state.selected_patient
+
+    st.markdown(f"""
+    <div class="patient-card">
+
+        <h3 style="margin-bottom:16px;">
+            🩺 Selected Patient
+        </h3>
+
+        <div style="
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:12px;
+        ">
+
+            <div>
+                <b>🆔 Patient ID</b><br>
+                {selected_patient["patient_id"]}
+            </div>
+
+            <div>
+                <b>👤 Name</b><br>
+                {selected_patient["patient_name"]}
+            </div>
+
+            <div>
+                <b>🎂 Age</b><br>
+                {selected_patient["age"]}
+            </div>
+
+            <div>
+                <b>⚧ Gender</b><br>
+                {selected_patient["gender"]}
+            </div>
+
+            <div style="grid-column:1 / -1;">
+                <b>📍 Village / Area</b><br>
+                {selected_patient["village"]}
+            </div>
+
+        </div>
+
+    </div>
+    """, unsafe_allow_html=True)
 
 # =========================================================
 # CONSULTATION DETAILS
