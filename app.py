@@ -932,27 +932,7 @@ if st.session_state.get("selected_patient") is not None:
     st.write(f"**Gender:** {patient_gender}")
     st.write(f"**Village / Area:** {selected_patient['village']}")
 
-    patient_id = st.text_input(
-        "Patient ID",
-        placeholder="Example: P001"
-    )
 
-    patient_age = st.number_input(
-        "Patient Age",
-        min_value=0,
-        max_value=120,
-        value=0,
-        step=1
-    )
-
-    patient_gender = st.selectbox(
-        "Patient Gender",
-        [
-            "Not specified",
-            "Female",
-            "Male",
-            "Other",
-        ]
     )
 
 
