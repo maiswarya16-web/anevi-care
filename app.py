@@ -937,9 +937,6 @@ if st.session_state.get("selected_patient") is not None:
 # CONSULTATION NOTES
 # ---------------------------------------------------------
 
-
-
-
 main_complaint = st.text_area(
     "🩺 Main Complaint",
     placeholder=(
