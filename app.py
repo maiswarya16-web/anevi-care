@@ -1032,7 +1032,7 @@ col1, col2 = st.columns(2)
 
 with col1:
     temperature = st.text_input(
-        "🌡️ Temperature",
+        "🌡️ Temperature (°F)",
         placeholder="Example: 98.6 °F"
     )
 
