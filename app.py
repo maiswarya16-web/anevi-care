@@ -984,9 +984,17 @@ with col2:
         height=100
     )
 
-symptom_duration = st.text_input(
+symptom_duration = st.selectbox(
     "⏱️ Symptom Duration",
-    placeholder="Example: 2 days, 1 week, 3 months"
+    [
+        "Not specified",
+        "Today",
+        "1–2 days",
+        "3–7 days",
+        "1–4 weeks",
+        "1–6 months",
+        "More than 6 months"
+    ]
 )
 
 # ---------------------------------------------------------
