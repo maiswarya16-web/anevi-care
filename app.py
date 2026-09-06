@@ -913,6 +913,15 @@ patient_notes = st.text_area(
     height=100
 )
 
+main_complaint = st.text_area(
+    "🩺 Main Complaint",
+    placeholder=(
+        "Example: Fever, headache, cough, stomach pain, "
+        "body pain, etc."
+    ),
+    height=80
+)
+
 # =========================================================
 # HEALTH TOPIC
 # =========================================================
