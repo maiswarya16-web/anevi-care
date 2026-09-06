@@ -931,6 +931,11 @@ symptoms = st.text_area(
     height=80
 )
 
+symptom_duration = st.text_input(
+    "⏱️ Symptom Duration",
+    placeholder="Example: 2 days, 1 week, 3 months"
+)
+
 # =========================================================
 # HEALTH TOPIC
 # =========================================================
