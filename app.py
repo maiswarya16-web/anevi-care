@@ -1052,7 +1052,7 @@ with col1:
 
 with col2:
     weight = st.text_input(
-        "⚖️ Weight",
+        "⚖️ Weight (kg)",
         placeholder="Example: 60 kg"
     )
 
@@ -1060,13 +1060,13 @@ col1, col2 = st.columns(2)
 
 with col1:
     pulse_rate = st.text_input(
-        "❤️ Pulse Rate",
+        "❤️ Pulse Rate (bpm)",
         placeholder="Example: 72 bpm"
     )
 
 with col2:
     spo2 = st.text_input(
-        "🫁 SpO₂",
+        "🫁 SpO₂ (%)",
         placeholder="Example: 98%"
     )
 
