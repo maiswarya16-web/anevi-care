@@ -989,16 +989,6 @@ with col1:
         height=100
     )
 
-with col2:
-    patient_notes = st.text_area(
-        "📝 Relevant Patient Notes",
-        placeholder=(
-            "Example: History of diabetes, hypertension, "
-            "pregnancy, etc."
-        ),
-        height=100
-    )
-
 # =========================================================
 # VITAL SIGNS
 # =========================================================
