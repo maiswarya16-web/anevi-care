@@ -944,51 +944,60 @@ if st.session_state.get("selected_patient") is not None:
     st.write(f"**Gender:** {patient_gender}")
     st.write(f"**Village / Area:** {selected_patient['village']}")
 
-
 # ---------------------------------------------------------
 # CONSULTATION NOTES
 # ---------------------------------------------------------
 
-main_complaint = st.text_area(
-    "🩺 Main Complaint",
-    placeholder=(
-        "Example: Fever, headache, cough, stomach pain, "
-        "body pain, etc."
-    ),
-    height=80
-)
+st.markdown("### 📝 Health Concerns")
 
-symptoms = st.text_area(
-    "🤒 Symptoms",
-    placeholder=(
-        "Example: Fever, cough, vomiting, dizziness, "
-        "weakness, difficulty breathing, etc."
-    ),
-    height=80
-)
+col1, col2 = st.columns(2)
+
+with col1:
+    main_complaint = st.text_area(
+        "🩺 Main Complaint",
+        placeholder=(
+            "Example: Fever, headache, cough, stomach pain, "
+            "body pain, etc."
+        ),
+        height=100
+    )
+
+with col2:
+    symptoms = st.text_area(
+        "🤒 Symptoms",
+        placeholder=(
+            "Example: Fever, cough, vomiting, dizziness, "
+            "weakness, difficulty breathing, etc."
+        ),
+        height=100
+    )
 
 symptom_duration = st.text_input(
     "⏱️ Symptom Duration",
     placeholder="Example: 2 days, 1 week, 3 months"
 )
 
-medical_history = st.text_area(
-    "📋 Medical History",
-    placeholder=(
-        "Example: Diabetes, hypertension, previous surgery, "
-        "TB history, pregnancy history, etc."
-    ),
-    height=80
-)
+col1, col2 = st.columns(2)
 
-patient_notes = st.text_area(
-    "Relevant Patient Notes",
-    placeholder=(
-        "Example: History of diabetes, hypertension, "
-        "pregnancy, etc."
-    ),
-    height=100
-)
+with col1:
+    medical_history = st.text_area(
+        "📋 Medical History",
+        placeholder=(
+            "Example: Diabetes, hypertension, previous surgery, "
+            "TB history, pregnancy history, etc."
+        ),
+        height=100
+    )
+
+with col2:
+    patient_notes = st.text_area(
+        "📝 Relevant Patient Notes",
+        placeholder=(
+            "Example: History of diabetes, hypertension, "
+            "pregnancy, etc."
+        ),
+        height=100
+    )
 # =========================================================
 # HEALTH TOPIC
 # =========================================================
