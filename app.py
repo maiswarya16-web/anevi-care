@@ -922,6 +922,15 @@ main_complaint = st.text_area(
     height=80
 )
 
+symptoms = st.text_area(
+    "🤒 Symptoms",
+    placeholder=(
+        "Example: Fever, cough, vomiting, dizziness, "
+        "weakness, difficulty breathing, etc."
+    ),
+    height=80
+)
+
 # =========================================================
 # HEALTH TOPIC
 # =========================================================
