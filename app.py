@@ -3446,6 +3446,11 @@ def show_emergency_alert(language):
 # ASK SAATHI
 # =========================================================
 
+question = st.text_area(
+    "💬 Ask Saathi",
+    placeholder="Describe the patient's health problem or ask your question...",
+    height=120
+)
 if st.button(
     ui["button"],
     type="primary",
