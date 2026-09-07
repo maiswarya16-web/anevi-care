@@ -3795,7 +3795,10 @@ frontline health workers such as ASHA and ANM workers in India.
 
 Patient information:
 Patient ID: {selected_patient["patient_id"] if st.session_state.get("selected_patient") is not None else "Not provided"}
+Patient Name: {selected_patient["patient_name"] if st.session_state.get("selected_patient") is not None else "Not provided"}
+Age: {selected_patient["age"] if st.session_state.get("selected_patient") is not None else "Not provided"}
 Gender: {selected_patient["gender"] if st.session_state.get("selected_patient") is not None else "Not provided"}
+Village / Area: {selected_patient["village"] if st.session_state.get("selected_patient") is not None else "Not provided"}
 Medical history: {medical_history if medical_history else "None provided"}
 
 Selected health topic:
