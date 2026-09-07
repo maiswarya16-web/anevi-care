@@ -3802,7 +3802,7 @@ Patient information:
 Patient ID: {patient_id if patient_id else "Not provided"}
 Age: {patient_age}
 Gender: {patient_gender}
-Relevant notes: {patient_notes if patient_notes else "None provided"}
+Medical history: {medical_history if medical_history else "None provided"}
 
 Selected health topic:
 {topic}
@@ -3925,9 +3925,11 @@ The worker should be able to read the response in approximately
 Be concise. Be practical. Be safe.
 """
 
-        # =================================================
+              # =================================================
         # GEMINI RESPONSE
         # =================================================
+
+        response = None
 
         try:
 
@@ -3956,3 +3958,88 @@ Be concise. Be practical. Be safe.
         except Exception as e:
 
             show_gemini_error(e)
+
+
+        # =================================================
+        # VISIT SUMMARY
+        # =================================================
+
+        if response and response.text:
+
+            st.markdown("""
+            <div class="saathi-card">
+
+            <h2 style="margin-bottom:6px;">
+            📝 Visit Summary
+            </h2>
+
+            <p style="color:#64748b; margin-top:0;">
+            Quick record of today's patient consultation
+            </p>
+
+            </div>
+            """, unsafe_allow_html=True)
+
+            summary_patient_name = (
+                selected_patient["patient_name"]
+                if st.session_state.get("selected_patient") is not None
+                else "Not selected"
+            )
+
+            summary_patient_id = (
+                selected_patient["patient_id"]
+                if st.session_state.get("selected_patient") is not None
+                else "Not available"
+            )
+
+            st.markdown(f"""
+            <div class="saathi-card">
+
+            <h3>👤 Patient</h3>
+
+            <p>
+            <b>Name:</b> {summary_patient_name}<br>
+            <b>Patient ID:</b> {summary_patient_id}
+            </p>
+
+            <hr>
+
+            <h3>🩺 Health Concerns</h3>
+
+            <p>
+            <b>Main Complaint:</b> {main_complaint or "Not recorded"}<br>
+            <b>Symptoms:</b> {symptoms or "Not recorded"}<br>
+            <b>Duration:</b> {symptom_duration or "Not specified"}
+            </p>
+
+            <hr>
+
+            <h3>📋 Medical History</h3>
+
+            <p>
+            {medical_history or "No medical history recorded"}
+            </p>
+
+            <hr>
+
+            <h3>📊 Vital Signs & Measurements</h3>
+
+            <p>
+            <b>🌡️ Temperature:</b> {temperature or "Not recorded"}<br>
+            <b>🩸 Blood Pressure:</b> {blood_pressure or "Not recorded"}<br>
+            <b>🩸 Blood Sugar:</b> {blood_sugar or "Not recorded"}<br>
+            <b>⚖️ Weight:</b> {weight or "Not recorded"}<br>
+            <b>❤️ Pulse Rate:</b> {pulse_rate or "Not recorded"}<br>
+            <b>🫁 SpO₂:</b> {spo2 or "Not recorded"}
+            </p>
+
+            <hr>
+
+            <h3>⚠️ Risk Assessment</h3>
+
+            <p>
+            <b>Risk Level:</b> {risk_priority}
+            </p>
+
+            </div>
+            """, unsafe_allow_html=True)
