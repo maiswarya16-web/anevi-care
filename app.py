@@ -914,56 +914,6 @@ if st.session_state.get("selected_patient") is not None:
         """,
         unsafe_allow_html=True
     )
-# ---------------------------------------------------------
-# SELECTED PATIENT CARD
-# ---------------------------------------------------------
-
-if st.session_state.get("selected_patient") is not None:
-
-    selected_patient = st.session_state.selected_patient
-
-    st.markdown(f"""
-    <div class="patient-card">
-
-        <h3 style="margin-bottom:16px;">
-            🩺 Selected Patient
-        </h3>
-
-        <div style="
-            display:grid;
-            grid-template-columns:1fr 1fr;
-            gap:12px;
-        ">
-
-            <div>
-                <b>🆔 Patient ID</b><br>
-                {selected_patient["patient_id"]}
-            </div>
-
-            <div>
-                <b>👤 Name</b><br>
-                {selected_patient["patient_name"]}
-            </div>
-
-            <div>
-                <b>🎂 Age</b><br>
-                {selected_patient["age"]}
-            </div>
-
-            <div>
-                <b>⚧ Gender</b><br>
-                {selected_patient["gender"]}
-            </div>
-
-            <div style="grid-column:1 / -1;">
-                <b>📍 Village / Area</b><br>
-                {selected_patient["village"]}
-            </div>
-
-        </div>
-
-    </div>
-    """, unsafe_allow_html=True)
 
 # =========================================================
 # CONSULTATION DETAILS
