@@ -3956,87 +3956,90 @@ Be concise. Be practical. Be safe.
 
             show_gemini_error(e)
 
+# =================================================
+# VISIT SUMMARY
+# =================================================
 
-        # =================================================
-        # VISIT SUMMARY
-        # =================================================
+if response and response.text:
 
-        if response and response.text:
+    st.subheader("📝 Visit Summary")
 
-            st.markdown("""
-            <div class="saathi-card">
+    if st.session_state.get("selected_patient") is not None:
 
-            <h2 style="margin-bottom:6px;">
-            📝 Visit Summary
-            </h2>
+        selected_patient = st.session_state.selected_patient
 
-            <p style="color:#64748b; margin-top:0;">
-            Quick record of today's patient consultation
-            </p>
+        st.write(
+            f"**👤 Patient Name:** {selected_patient['patient_name']}"
+        )
 
-            </div>
-            """, unsafe_allow_html=True)
+        st.write(
+            f"**🆔 Patient ID:** {selected_patient['patient_id']}"
+        )
 
-            summary_patient_name = (
-                selected_patient["patient_name"]
-                if st.session_state.get("selected_patient") is not None
-                else "Not selected"
-            )
+        st.write(
+            f"**🎂 Age:** {selected_patient['age']}"
+        )
 
-            summary_patient_id = (
-                selected_patient["patient_id"]
-                if st.session_state.get("selected_patient") is not None
-                else "Not available"
-            )
+        st.write(
+            f"**⚧ Gender:** {selected_patient['gender']}"
+        )
 
-            st.markdown(f"""
-            <div class="saathi-card">
+        st.write(
+            f"**📍 Village / Area:** {selected_patient['village']}"
+        )
 
-            <h3>👤 Patient</h3>
+    st.write("---")
 
-            <p>
-            <b>Name:</b> {summary_patient_name}<br>
-            <b>Patient ID:</b> {summary_patient_id}
-            </p>
+    st.write(
+        f"**🩺 Main Complaint:** "
+        f"{main_complaint or 'Not recorded'}"
+    )
 
-            <hr>
+    st.write(
+        f"**🤒 Symptoms:** "
+        f"{symptoms or 'Not recorded'}"
+    )
 
-            <h3>🩺 Health Concerns</h3>
+    st.write(
+        f"**⏱️ Duration:** "
+        f"{symptom_duration or 'Not specified'}"
+    )
 
-            <p>
-            <b>Main Complaint:</b> {main_complaint or "Not recorded"}<br>
-            <b>Symptoms:</b> {symptoms or "Not recorded"}<br>
-            <b>Duration:</b> {symptom_duration or "Not specified"}
-            </p>
+    st.write(
+        f"**📋 Medical History:** "
+        f"{medical_history or 'Not recorded'}"
+    )
 
-            <hr>
+    st.write("---")
 
-            <h3>📋 Medical History</h3>
+    st.write("**📊 Vital Signs & Measurements**")
 
-            <p>
-            {medical_history or "No medical history recorded"}
-            </p>
+    st.write(
+        f"🌡️ Temperature: {temperature or 'Not recorded'}"
+    )
 
-            <hr>
+    st.write(
+        f"🩸 Blood Pressure: {blood_pressure or 'Not recorded'}"
+    )
 
-            <h3>📊 Vital Signs & Measurements</h3>
+    st.write(
+        f"🩸 Blood Sugar: {blood_sugar or 'Not recorded'}"
+    )
 
-            <p>
-            <b>🌡️ Temperature:</b> {temperature or "Not recorded"}<br>
-            <b>🩸 Blood Pressure:</b> {blood_pressure or "Not recorded"}<br>
-            <b>🩸 Blood Sugar:</b> {blood_sugar or "Not recorded"}<br>
-            <b>⚖️ Weight:</b> {weight or "Not recorded"}<br>
-            <b>❤️ Pulse Rate:</b> {pulse_rate or "Not recorded"}<br>
-            <b>🫁 SpO₂:</b> {spo2 or "Not recorded"}
-            </p>
+    st.write(
+        f"⚖️ Weight: {weight or 'Not recorded'}"
+    )
 
-            <hr>
+    st.write(
+        f"❤️ Pulse Rate: {pulse_rate or 'Not recorded'}"
+    )
 
-            <h3>⚠️ Risk Assessment</h3>
+    st.write(
+        f"🫁 SpO₂: {spo2 or 'Not recorded'}"
+    )
 
-            <p>
-            <b>Risk Level:</b> {risk_priority}
-            </p>
+    st.write("---")
 
-            </div>
-            """, unsafe_allow_html=True)
+    st.write(
+        f"**⚠️ Risk Level:** {risk_priority}"
+    )
