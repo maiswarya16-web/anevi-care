@@ -862,59 +862,40 @@ with col2:
 
 
 # ---------------------------------------------------------
-# SELECTED PATIENT CARD
+# SELECTED PATIENT
 # ---------------------------------------------------------
 
 if st.session_state.get("selected_patient") is not None:
 
     selected_patient = st.session_state.selected_patient
 
-    st.markdown(
-        f"""
-        <div class="patient-card">
+    st.subheader("🩺 Selected Patient")
 
-            <h3 style="margin-bottom:16px;">
-                🩺 Selected Patient
-            </h3>
+    col1, col2 = st.columns(2)
 
-            <div style="
-                display:grid;
-                grid-template-columns:1fr 1fr;
-                gap:12px;
-            ">
+    with col1:
+        st.write(
+            f"**🆔 Patient ID:** {selected_patient['patient_id']}"
+        )
 
-                <div>
-                    <b>🆔 Patient ID</b><br>
-                    {selected_patient["patient_id"]}
-                </div>
+        st.write(
+            f"**👤 Name:** {selected_patient['patient_name']}"
+        )
 
-                <div>
-                    <b>👤 Name</b><br>
-                    {selected_patient["patient_name"]}
-                </div>
+        st.write(
+            f"**🎂 Age:** {selected_patient['age']}"
+        )
 
-                <div>
-                    <b>🎂 Age</b><br>
-                    {selected_patient["age"]}
-                </div>
+    with col2:
+        st.write(
+            f"**⚧ Gender:** {selected_patient['gender']}"
+        )
 
-                <div>
-                    <b>⚧ Gender</b><br>
-                    {selected_patient["gender"]}
-                </div>
+        st.write(
+            f"**📍 Village / Area:** {selected_patient['village']}"
+        )
 
-                <div style="grid-column:1 / -1;">
-                    <b>📍 Village / Area</b><br>
-                    {selected_patient["village"]}
-                </div>
-
-            </div>
-
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
-
+    st.divider()
 # =========================================================
 # CONSULTATION DETAILS
 # =========================================================
