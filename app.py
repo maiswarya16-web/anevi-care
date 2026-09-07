@@ -3794,8 +3794,7 @@ You are a fast, practical digital health assistant designed for
 frontline health workers such as ASHA and ANM workers in India.
 
 Patient information:
-Patient ID: {patient_id if patient_id else "Not provided"}
-Age: {patient_age}
+Patient ID: {selected_patient["patient_id"] if st.session_state.get("selected_patient") is not None else "Not provided"}
 Gender: {patient_gender}
 Medical history: {medical_history if medical_history else "None provided"}
 
