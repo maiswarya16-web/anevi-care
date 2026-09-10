@@ -59,5 +59,5 @@ Always follow current local and national clinical guidelines.
 
 
 def get_maternal_health_knowledge():
-    """Return the maternal health knowledge base for Saathi."""
+    """Return the maternal health knowledge base for Anevi Care."""
     return MATERNAL_HEALTH
