@@ -158,6 +158,11 @@ KNOWLEDGE_BASE = {
     "Heart Health": get_heart_health_knowledge(),
     "Maternal Health": get_maternal_health_knowledge(),
 }
+
+def get_relevant_knowledge(topic):
+    """Return trusted knowledge for the selected health topic."""
+    return KNOWLEDGE_BASE.get(topic, {})
+    
 # =========================================================
 # Anevi CareDARK UI
 # =========================================================
