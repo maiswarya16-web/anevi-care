@@ -173,9 +173,19 @@ st.markdown("""
 # Anevi CareHEADER
 # =========================================================
 
-st.title("🩺 Anevi Care")
-st.caption(
-    "Community Health Assistant"
+st.markdown(
+    """
+    <div style="text-align: center;">
+        <h1>🩺 Anevi Care</h1>
+        <p style="font-size: 18px; font-style: italic;">
+            Care • Guidance • Community
+        </p>
+        <p style="font-size: 16px; font-weight: 600;">
+            AI-assisted healthcare for frontline workers
+        </p>
+    </div>
+    """,
+    unsafe_allow_html=True
 )
 
 # =========================================================
