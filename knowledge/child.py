@@ -61,5 +61,5 @@ Always follow current local and national child-health guidelines.
 
 
 def get_child_health_knowledge():
-    """Return the child health knowledge base for Saathi."""
+    """Return the child health knowledge base for Anevi Care."""
     return CHILD_HEALTH
