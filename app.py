@@ -4,6 +4,7 @@ import streamlit as st
 from google import genai
 import sqlite3
 from datetime import datetime
+
 from knowledge.child import get_child_health_knowledge
 from knowledge.heart import get_heart_health_knowledge
 from knowledge.maternal import get_maternal_health_knowledge
@@ -150,6 +151,13 @@ st.set_page_config(
 )
 
 response = None
+
+# Trusted Knowledge Registry
+KNOWLEDGE_BASE = {
+    "Child Health": get_child_health_knowledge(),
+    "Heart Health": get_heart_health_knowledge(),
+    "Maternal Health": get_maternal_health_knowledge(),
+}
 # =========================================================
 # Anevi CareDARK UI
 # =========================================================
