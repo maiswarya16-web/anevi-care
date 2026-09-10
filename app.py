@@ -146,6 +146,7 @@ st.set_page_config(
     layout="centered",
 )
 
+response = None
 # =========================================================
 # SAATHI DARK UI
 # =========================================================
@@ -3922,7 +3923,7 @@ The worker should be able to read the response in approximately
 Be concise. Be practical. Be safe.
 """
 
-              # =================================================
+        # =================================================
         # GEMINI RESPONSE
         # =================================================
 
