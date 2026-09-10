@@ -4,6 +4,9 @@ import streamlit as st
 from google import genai
 import sqlite3
 from datetime import datetime
+from knowledge.child import get_child_health_knowledge
+from knowledge.heart import get_heart_health_knowledge
+from knowledge.maternal import get_maternal_health_knowledge
 
 # =========================================================
 # PATIENT DATABASE CONNECTION
