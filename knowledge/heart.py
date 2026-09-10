@@ -73,5 +73,5 @@ Always follow current local and national clinical guidelines.
 
 
 def get_heart_health_knowledge():
-    """Return the heart health knowledge base for Saathi."""
+    """Return the heart health knowledge base for Anevi Care."""
     return HEART_HEALTH
