@@ -11,7 +11,7 @@ from datetime import datetime
 
 def get_db_connection():
     return sqlite3.connect(
-        "saathi_patients.db",
+        "Anevi Care_patients.db",
         check_same_thread=False
     )
 
@@ -254,7 +254,7 @@ def show_gemini_error(error):
         )
 
     elif category == "temporary":
-        st.warning("⚠️ Saathi's AI service is temporarily unavailable.")
+        st.warning("⚠️ Anevi Care's AI service is temporarily unavailable.")
         st.info("Please try again shortly.")
 
     elif category == "model":
@@ -280,8 +280,8 @@ UI_TEXT = {
         "topic": "Select a health topic:",
         "question": "Ask Anevi Carea health-related question:",
         "placeholder": "Example: What warning signs should I look for during pregnancy?",
-        "button": "Ask Saathi",
-        "guidance": "🩺 Saathi's Guidance",
+        "button": " Ask Anevi Care",
+        "guidance": "🩺 Anevi's care guidance",
         "empty": "Please enter or speak a health question first.",
         "voice": "Record your question:",
         "voice_help": "Tap the microphone and speak your health question.",
@@ -831,7 +831,7 @@ if st.session_state.current_page == "search_patient":
 # =========================================================
 
 st.markdown("""
-<div class="saathi-card">
+<div class="Anevi Care"-card">
 
 <h2 style="margin-bottom:6px;">
 👤 Patient Information
@@ -911,7 +911,7 @@ if st.session_state.get("selected_patient") is not None:
 # =========================================================
 
 st.markdown("""
-<div class="saathi-card">
+<div class=Anevi Care-card">
 
 <h2 style="margin-bottom:6px;">
 🩺 Consultation Details
@@ -949,7 +949,7 @@ if st.session_state.get("selected_patient") is not None:
 # ---------------------------------------------------------
 
 st.markdown("""
-<div class="saathi-card">
+<div class="Anevi Care-card">
 
 <h2 style="margin-bottom:6px;">
 📝 Health Concerns
@@ -1015,7 +1015,7 @@ medical_history = st.text_area(
 # =========================================================
 
 st.markdown("""
-<div class="saathi-card">
+<div class="Anevi Care-card">
 
 <h2 style="margin-bottom:4px;">
 📊 Vital Signs & Measurements
@@ -3290,7 +3290,7 @@ RED_FLAG_MESSAGE = {
 
     "English": (
         "The question contains a possible emergency warning sign. "
-        "Do not rely only on Saathi. Arrange urgent assessment by "
+        "Do not rely only on Anevi Care. Arrange urgent assessment by "
         "appropriate emergency medical services or a suitable healthcare facility."
     ),
 
@@ -3453,18 +3453,18 @@ def show_emergency_alert(language):
 
 
 # =========================================================
-# ASK SAATHI
+# ASK ANEVI CARE
 # =========================================================
 
 question = st.text_area(
-    "💬 Ask Saathi",
+    "💬 Ask Anevi Care",
     placeholder="Describe the patient's health problem or ask your question...",
     height=120
 )
 if st.button(
     ui["button"],
     type="primary",
-    key="ask_saathi_button",
+    key="ask_Anevi Care_button",
 ):
 
     final_question = question.strip()
@@ -3782,7 +3782,7 @@ Language context: {language}
                 )
 
             st.error(
-                "⚠️ Do not wait for Saathi's AI response "
+                "⚠️ Do not wait for Anevi care's AI response "
                 "if the person has a serious or life-threatening condition."
             )
 
