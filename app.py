@@ -141,14 +141,14 @@ def add_new_patient(
 # =========================================================
 
 st.set_page_config(
-    page_title="Saathi AI Health Agent",
+    page_title="Anevi Care",
     page_icon="🩺",
     layout="centered",
 )
 
 response = None
 # =========================================================
-# SAATHI DARK UI
+# Anevi CareDARK UI
 # =========================================================
 
 st.markdown("""
@@ -170,13 +170,12 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # =========================================================
-# SAATHI HEADER
+# Anevi CareHEADER
 # =========================================================
 
-st.title("🩺 Saathi AI — Frontline Health Worker Assistant")
-
+st.title("🩺 Anevi Care")
 st.caption(
-    "AI-Powered Community Healthcare Support for ASHA & ANM Workers"
+    "Community Health Assistant"
 )
 
 # =========================================================
@@ -256,7 +255,7 @@ def show_gemini_error(error):
         st.info("Check GEMINI_API_KEY in Streamlit Secrets.")
 
     else:
-        st.error("❌ Saathi encountered a technical error.")
+        st.error("❌ Anevi Careencountered a technical error.")
 
     with st.expander("Technical error details"):
         st.code(details)
@@ -269,7 +268,7 @@ def show_gemini_error(error):
 UI_TEXT = {
     "English": {
         "topic": "Select a health topic:",
-        "question": "Ask Saathi a health-related question:",
+        "question": "Ask Anevi Carea health-related question:",
         "placeholder": "Example: What warning signs should I look for during pregnancy?",
         "button": "Ask Saathi",
         "guidance": "🩺 Saathi's Guidance",
@@ -379,7 +378,7 @@ st.write(
 )
 
 st.info(
-    "Saathi provides health information and referral guidance. "
+    "Anevi Careprovides health information and referral guidance. "
     "It does not replace a qualified doctor or emergency medical service."
 )
 
@@ -3789,7 +3788,7 @@ Language context: {language}
         # =================================================
 
         prompt = f"""
-You are Saathi AI Health Agent.
+You are Anevi CareAI Health Agent.
 
 You are a fast, practical digital health assistant designed for
 frontline health workers such as ASHA and ANM workers in India.
@@ -3814,7 +3813,7 @@ Health question:
 Local safety screen:
 No local emergency red-flag keyword was detected.
 
-Local Saathi risk priority:
+Local Anevi Carerisk priority:
 {risk_priority}
 
 Risk instruction:
@@ -3932,7 +3931,7 @@ Be concise. Be practical. Be safe.
         try:
 
             with st.spinner(
-                "🩺 Saathi is preparing guidance..."
+                "🩺 Anevi Care is preparing guidance..."
             ):
 
                 response = call_gemini(prompt)
@@ -3950,7 +3949,7 @@ Be concise. Be practical. Be safe.
             else:
 
                 st.warning(
-                    "⚠️ Saathi could not generate a response right now."
+                    "⚠️ could not generate a response right now."
                 )
 
         except Exception as e:
