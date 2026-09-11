@@ -3824,6 +3824,11 @@ Selected health topic:
 Trusted knowledge for this topic:
 {trusted_knowledge}
 
+Use the trusted knowledge above as the primary reference for this topic.
+Do not invent facts that are not supported by the trusted knowledge.
+If the trusted knowledge does not contain enough information, give safe
+general guidance and recommend appropriate healthcare evaluation.
+
 Selected language:
 {language}
 Health question:
