@@ -163,7 +163,6 @@ def get_relevant_knowledge(topic):
     """Return trusted knowledge for the selected health topic."""
     return KNOWLEDGE_BASE.get(topic, {})
 
-st.write("Knowledge modules loaded:", list(KNOWLEDGE_BASE.keys()))
 # =========================================================
 # Anevi CareDARK UI
 # =========================================================
