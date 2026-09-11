@@ -3798,11 +3798,12 @@ Language context: {language}
             # Stop Gemini response
             st.stop()
 
-        # =================================================
-        # GEMINI PROMPT
-        # =================================================
+# =================================================
+# GEMINI PROMPT
+# =================================================
 
 trusted_knowledge = get_relevant_knowledge(topic)
+
 prompt = f"""
 You are Anevi CareAI Health Agent.
 
@@ -3820,9 +3821,11 @@ Medical history: {medical_history if medical_history else "None provided"}
 Selected health topic:
 {topic}
 
+Trusted knowledge for this topic:
+{trusted_knowledge}
+
 Selected language:
 {language}
-
 Health question:
 {final_question}
 
