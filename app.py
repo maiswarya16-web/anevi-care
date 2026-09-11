@@ -3802,8 +3802,6 @@ Language context: {language}
 # GEMINI PROMPT
 # =================================================
 
-final_question = voice_question if voice_question else user_question
-
 trusted_knowledge = get_relevant_knowledge(topic)
 
 prompt = f"""
