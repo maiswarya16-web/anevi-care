@@ -3568,7 +3568,7 @@ Language context: {language}
     else:
 
         st.info(
-            f"📝 Question received:\n\n{final_question}"
+            f"📝 Question received:\n\n{question}"
         )
 
         # =================================================
