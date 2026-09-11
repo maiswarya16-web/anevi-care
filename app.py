@@ -3802,7 +3802,8 @@ Language context: {language}
         # GEMINI PROMPT
         # =================================================
 
-        prompt = f"""
+trusted_knowledge = get_relevant_knowledge(topic)
+prompt = f"""
 You are Anevi CareAI Health Agent.
 
 You are a fast, practical digital health assistant designed for
