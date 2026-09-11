@@ -3832,7 +3832,7 @@ general guidance and recommend appropriate healthcare evaluation.
 Selected language:
 {language}
 Health question:
-{final_question}
+{question}
 
 Local safety screen:
 No local emergency red-flag keyword was detected.
