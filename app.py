@@ -3796,27 +3796,39 @@ Language context: {language}
             )
 
             # Stop Gemini response
-            st.stop()
+                        st.stop()
 
-# =================================================
-# GEMINI PROMPT
-# =================================================
+               # =================================================
+        # GEMINI PROMPT
+        # =================================================
 
-trusted_knowledge = get_relevant_knowledge(topic)
+        trusted_knowledge = get_relevant_knowledge(topic)
 
-prompt = f"""
-You are Anevi CareAI Health Agent.
+        prompt = f"""
+You are Anevi Care AI Health Agent.
 
 You are a fast, practical digital health assistant designed for
 frontline health workers such as ASHA and ANM workers in India.
 
 Patient information:
-Patient ID: {selected_patient["patient_id"] if st.session_state.get("selected_patient") is not None else "Not provided"}
-Patient Name: {selected_patient["patient_name"] if st.session_state.get("selected_patient") is not None else "Not provided"}
-Age: {selected_patient["age"] if st.session_state.get("selected_patient") is not None else "Not provided"}
-Gender: {selected_patient["gender"] if st.session_state.get("selected_patient") is not None else "Not provided"}
-Village / Area: {selected_patient["village"] if st.session_state.get("selected_patient") is not None else "Not provided"}
-Medical history: {medical_history if medical_history else "None provided"}
+
+Patient ID:
+{selected_patient["patient_id"] if st.session_state.get("selected_patient") is not None else "Not provided"}
+
+Patient Name:
+{selected_patient["patient_name"] if st.session_state.get("selected_patient") is not None else "Not provided"}
+
+Age:
+{selected_patient["age"] if st.session_state.get("selected_patient") is not None else "Not provided"}
+
+Gender:
+{selected_patient["gender"] if st.session_state.get("selected_patient") is not None else "Not provided"}
+
+Village / Area:
+{selected_patient["village"] if st.session_state.get("selected_patient") is not None else "Not provided"}
+
+Medical history:
+{medical_history if medical_history else "None provided"}
 
 Selected health topic:
 {topic}
@@ -3825,19 +3837,22 @@ Trusted knowledge for this topic:
 {trusted_knowledge}
 
 Use the trusted knowledge above as the primary reference for this topic.
+
 Do not invent facts that are not supported by the trusted knowledge.
+
 If the trusted knowledge does not contain enough information, give safe
 general guidance and recommend appropriate healthcare evaluation.
 
 Selected language:
 {language}
+
 Health question:
-{question}
+{final_question}
 
 Local safety screen:
 No local emergency red-flag keyword was detected.
 
-Local Anevi Carerisk priority:
+Local Anevi Care risk priority:
 {risk_priority}
 
 Risk instruction:
@@ -3946,40 +3961,41 @@ The worker should be able to read the response in approximately
 Be concise. Be practical. Be safe.
 """
 
-# =================================================
-# GEMINI RESPONSE
-# =================================================
+        # =================================================
+        # GEMINI RESPONSE
+        # =================================================
 
-response = None
+        response = None
 
-try:
+        try:
 
-    with st.spinner(
-        "🩺 Anevi Care is preparing guidance..."
-    ):
+            with st.spinner(
+                "🩺 Anevi Care is preparing guidance..."
+            ):
 
-        response = call_gemini(prompt)
+                response = call_gemini(prompt)
 
-    if response and response.text:
+            if response and response.text:
 
-        st.success(
-            ui["guidance"]
-        )
+                st.success(
+                    ui["guidance"]
+                )
 
-        st.write(
-            response.text
-        )
+                st.write(
+                    response.text
+                )
 
-    else:
+            else:
 
-        st.warning(
-            "⚠️ could not generate a response right now."
-        )
+                st.warning(
+                    "⚠️ could not generate a response right now."
+                )
 
-except Exception as e:
+        except Exception as e:
 
-    show_gemini_error(e)
+            show_gemini_error(e)
 
+    
 # =================================================
 # VISIT SUMMARY
 # =================================================
