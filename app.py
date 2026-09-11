@@ -391,22 +391,11 @@ language = st.selectbox(
 
 ui = UI_TEXT[language]
 
+if "selected_patient" not in st.session_state:
+    st.session_state.selected_patient = None
 
-# =========================================================
-# TITLE
-# =========================================================
-
-st.subheader("🩺 Health Consultation")
-
-st.write(
-    "A digital health assistant designed to support "
-    "frontline health workers such as ASHA and ANM workers."
-)
-
-st.info(
-    "Anevi Careprovides health information and referral guidance. "
-    "It does not replace a qualified doctor or emergency medical service."
-)
+if "current_page" not in st.session_state:
+    st.session_state.current_page = "consultation"
 
 
 # =========================================================
