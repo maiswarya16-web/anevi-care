@@ -67,17 +67,19 @@ def create_patient_database():
 
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS visits (
-            visit_id INTEGER PRIMARY KEY AUTOINCREMENT,
-            patient_id TEXT,
-            visit_date TEXT,
-            complaint TEXT,
-            temperature TEXT,
-            blood_pressure TEXT,
-            blood_sugar TEXT,
-            weight TEXT,
-            risk_level TEXT,
-            notes TEXT
-        )
+    visit_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    patient_id TEXT,
+    visit_date TEXT,
+    complaint TEXT,
+    temperature TEXT,
+    blood_pressure TEXT,
+    blood_sugar TEXT,
+    weight TEXT,
+    pulse_rate TEXT,
+    spo2 TEXT,
+    risk_level TEXT,
+    notes TEXT
+)
     """)
 
     conn.commit()
