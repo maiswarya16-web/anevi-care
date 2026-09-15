@@ -3977,19 +3977,6 @@ Language context: {language}
             st.stop()
 
 # =================================================
-# LOCAL RISK PRIORITY
-# =================================================
-
-risk_priority = "🟢 LOW RISK"
-
-if emergency_detected:
-    risk_priority = "🔴 EMERGENCY"
-elif high_risk_detected:
-    risk_priority = "🟠 HIGH RISK"
-elif moderate_risk_detected:
-    risk_priority = "🟡 MODERATE RISK"
-
-# =================================================
 # GEMINI PROMPT
 # =================================================
 
