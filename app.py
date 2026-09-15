@@ -3626,15 +3626,15 @@ if st.button(
 
     final_question = question.strip()
 
-    # =====================================================
-    # VOICE TRANSCRIPTION
-    # =====================================================
+   # =====================================================
+# VOICE TRANSCRIPTION
+# =====================================================
 
-    if not final_question and new_audio_bytes:
+if not final_question and new_audio_bytes:
 
-        try:
+    try:
 
-            voice_prompt = f"""
+        voice_prompt = f"""
 Transcribe this audio recording.
 
 The speaker may use:
@@ -3648,78 +3648,78 @@ Do not explain.
 Language context: {language}
 """
 
-            voice_response = call_gemini(
-                [
-                    {
-                        "role": "user",
-                        "parts": [
-                            {
-                                "text": voice_prompt
-                            },
-                            {
-                                "inline_data": {
-                                    "mime_type": "audio/wav",
-                                    "data": new_audio_bytes,
-                                }
-                            },
-                        ],
-                    }
-                ]
+        voice_response = call_gemini(
+            [
+                {
+                    "role": "user",
+                    "parts": [
+                        {
+                            "text": voice_prompt
+                        },
+                        {
+                            "inline_data": {
+                                "mime_type": "audio/wav",
+                                "data": new_audio_bytes,
+                            }
+                        },
+                    ],
+                }
+            ]
+        )
+
+        if (
+            voice_response
+            and voice_response.text
+        ):
+
+            final_question = (
+                voice_response.text.strip()
             )
 
-            if (
-                voice_response
-                and voice_response.text
-            ):
+            st.session_state.voice_question = (
+                final_question
+            )
 
-                final_question = (
-                    voice_response.text.strip()
-                )
+            st.session_state.last_audio_bytes = (
+                new_audio_bytes
+            )
 
-                st.session_state.voice_question = (
-                    final_question
-                )
+            st.success("🎤 Voice detected")
 
-                st.session_state.last_audio_bytes = (
-                    new_audio_bytes
-                )
+            st.write("**You said:**")
 
-                st.success("🎤 Voice detected")
+            st.write(final_question)
 
-                st.write("**You said:**")
+    except Exception as e:
 
-                st.write(final_question)
-            except Exception as e:
+        category, details = classify_gemini_error(e)
 
-                category, details = classify_gemini_error(e)
+        if category == "temporary":
 
-                if category == "temporary":
+            st.warning(
+                "⚠️ Gemini is temporarily unavailable."
+            )
 
-                    st.warning(
-                        "⚠️ Gemini is temporarily unavailable."
-                    )
+            st.info(
+                "🛡️ Switching to Anevi Care Local Safety Mode."
+            )
 
-                    st.info(
-                        "🛡️ Switching to Anevi Care Local Safety Mode."
-                    )
+            local_guidance = get_local_fallback_guidance(
+                topic,
+                language
+            )
 
-                    local_guidance = get_local_fallback_guidance(
-                        topic,
-                        language
-                    )
+            st.success(
+                "🛡️ Local Safety Guidance"
+            )
 
-                    st.success(
-                        "🛡️ Local Safety Guidance"
-                    )
+            st.markdown(
+                local_guidance
+            )
 
-                    st.markdown(
-                        local_guidance
-                    )
+        else:
 
-                else:
-
-                    show_gemini_error(e)
-
+            show_gemini_error(e)
     # =====================================================
     # USE LAST SUCCESSFUL VOICE TRANSCRIPTION
     # =====================================================
