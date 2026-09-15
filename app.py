@@ -3690,36 +3690,37 @@ Language context: {language}
 
             st.write(final_question)
 
-    except Exception as e:
+            except Exception as e:
 
-        category, details = classify_gemini_error(e)
+            category, details = classify_gemini_error(e)
 
-        if category == "temporary":
+            if category == "temporary":
 
-            st.warning(
-                "⚠️ Gemini is temporarily unavailable."
-            )
+                st.warning(
+                    "⚠️ Anevi Care AI is temporarily unavailable."
+                )
 
-            st.info(
-                "🛡️ Switching to Anevi Care Local Safety Mode."
-            )
+                st.info(
+                    "🛡️ Switching to Anevi Care Local Safety Mode."
+                )
 
-            local_guidance = get_local_fallback_guidance(
-                topic,
-                language
-            )
+                local_guidance = get_local_fallback_guidance(
+                    topic,
+                    language
+                )
 
-            st.success(
-                "🛡️ Local Safety Guidance"
-            )
+                st.success(
+                    "🛡️ Local Safety Guidance"
+                )
 
-            st.markdown(
-                local_guidance
-            )
+                st.markdown(
+                    local_guidance
+                )
 
-        else:
+            else:
 
-            show_gemini_error(e)
+                show_gemini_error(e)
+                
     # =====================================================
     # USE LAST SUCCESSFUL VOICE TRANSCRIPTION
     # =====================================================
