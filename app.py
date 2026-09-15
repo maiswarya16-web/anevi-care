@@ -4136,10 +4136,14 @@ if response and response.text:
         f"**⚠️ Risk Level:** {risk_priority}"
     )
     
-    # =================================================
-    # SAVE CONSULTATION / VISIT HISTORY
-    # =================================================
+   # =================================================
+# SAVE CONSULTATION / VISIT HISTORY
+# =================================================
 
+if "visit_saved" not in st.session_state:
+    st.session_state.visit_saved = False
+
+if not st.session_state.visit_saved:
     try:
         save_visit(
             patient_id=patient_id,
@@ -4154,6 +4158,7 @@ if response and response.text:
             notes=response.text
         )
 
+        st.session_state.visit_saved = True
         st.success("✅ Consultation saved successfully.")
 
     except Exception as e:
