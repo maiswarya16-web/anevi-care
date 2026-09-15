@@ -4170,7 +4170,7 @@ Be concise. Be practical. Be safe.
                     "⚠️ could not generate a response right now."
                 )
 
-        except Exception as e:
+except Exception as e:
 
     category, details = classify_gemini_error(e)
 
