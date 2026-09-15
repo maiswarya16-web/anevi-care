@@ -352,6 +352,7 @@ def call_gemini(contents):
 
 
 def classify_gemini_error(error):
+
     text = str(error)
     upper = text.upper()
 
@@ -372,73 +373,29 @@ def classify_gemini_error(error):
         or "500" in upper
         or "502" in upper
         or "504" in upper
+        or "TIMEOUT" in upper
+        or "DEADLINE" in upper
     ):
         return "temporary", text
 
-    if "404" in upper or "MODEL_NOT_FOUND" in upper:
+    if (
+        "404" in upper
+        or "MODEL_NOT_FOUND" in upper
+        or "NOT_FOUND" in upper
+    ):
         return "model", text
 
-    if "401" in upper or "403" in upper or "API KEY" in upper:
+    if (
+        "401" in upper
+        or "403" in upper
+        or "API KEY" in upper
+        or "API_KEY" in upper
+        or "PERMISSION_DENIED" in upper
+    ):
         return "auth", text
 
     return "other", text
-
-
-def show_gemini_error(error):
-    category, details = classify_gemini_error(error)
-
-    if category == "limit":
-        st.warning("⏳ Gemini API request limit reached.")
-        st.info(
-            "Anevi Care's local safety system is still available. "
-            "You can continue checking emergency warning signs."
-        )
-
-    elif category == "temporary":
-        st.warning(
-            "⚠️ Anevi Care AI is temporarily unavailable."
-        )
-
-        st.info(
-            "The AI service is currently busy or unavailable. "
-            "Anevi Care's local safety system is still active."
-        )
-
-        st.markdown(
-            """
-            ### 🛡️ Local Safety Mode
-
-            You can still use:
-            - 🚨 Emergency warning-sign detection
-            - 🩹 First-aid safety checks
-            - ⚠️ Local risk prioritization
-            - 🏥 Referral guidance
-
-            Please try the AI consultation again when connectivity
-            or the AI service becomes available.
-            """
-        )
-
-    elif category == "model":
-        st.error(
-            f"❌ Gemini model '{MODEL_NAME}' was not found."
-        )
-
-    elif category == "auth":
-        st.error(
-            "❌ Gemini API authentication failed."
-        )
-        st.info(
-            "Check GEMINI_API_KEY in Streamlit Secrets."
-        )
-
-    else:
-        st.error(
-            "❌ Anevi Care encountered a technical error."
-        )
-
-    with st.expander("Technical error details"):
-        st.code(details)
+    
 # =========================================================
 # MULTILINGUAL UI TEXT
 # =========================================================
