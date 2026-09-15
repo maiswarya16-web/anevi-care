@@ -4135,31 +4135,40 @@ if response and response.text:
     st.write(
         f"**⚠️ Risk Level:** {risk_priority}"
     )
-    
-   # =================================================
-# SAVE CONSULTATION / VISIT HISTORY
-# =================================================
 
-if "visit_saved" not in st.session_state:
-    st.session_state.visit_saved = False
+    # =================================================
+    # SAVE CONSULTATION / VISIT HISTORY
+    # =================================================
 
-if not st.session_state.visit_saved:
-    try:
-        save_visit(
-            patient_id=patient_id,
-            complaint=main_complaint,
-            temperature=temperature,
-            blood_pressure=blood_pressure,
-            blood_sugar=blood_sugar,
-            weight=weight,
-            pulse_rate=pulse_rate,
-            spo2=spo2,
-            risk_level=risk_priority,
-            notes=response.text
-        )
+    if (
+        st.session_state.get("selected_patient") is not None
+        and "visit_saved" not in st.session_state
+    ):
+        try:
+            selected_patient = st.session_state.selected_patient
 
-        st.session_state.visit_saved = True
-        st.success("✅ Consultation saved successfully.")
+            save_visit(
+                patient_id=selected_patient["patient_id"],
+                complaint=main_complaint,
+                temperature=temperature,
+                blood_pressure=blood_pressure,
+                blood_sugar=blood_sugar,
+                weight=weight,
+                pulse_rate=pulse_rate,
+                spo2=spo2,
+                risk_level=risk_priority,
+                notes=response.text
+            )
 
-    except Exception as e:
-        st.error(f"⚠️ Could not save consultation: {e}")
+            st.session_state.visit_saved = True
+
+            st.success(
+                "✅ Consultation saved successfully."
+            )
+
+        except Exception as e:
+
+            st.error(
+                f"⚠️ Could not save consultation: {e}"
+            )
+   
