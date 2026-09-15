@@ -3814,25 +3814,6 @@ Language context: {language}
                 "EMERGENCY — immediate medical attention may be needed."
             )
 
-        # =================================================
-        # LOCAL RISK PRIORITY UI
-        # =================================================
-
-        if risk_priority == "LOW":
-
-            st.success("🟢 LOW RISK")
-
-        elif risk_priority == "MODERATE":
-
-            st.warning("🟡 MODERATE RISK")
-
-        elif risk_priority == "HIGH":
-
-            st.error("🟠 HIGH RISK")
-
-        else:
-
-            st.error("🔴 EMERGENCY")
 
         # =================================================
         # FIRST-AID GUIDE
