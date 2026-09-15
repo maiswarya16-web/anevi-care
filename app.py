@@ -3690,7 +3690,7 @@ Language context: {language}
 
             st.write(final_question)
 
-            except Exception as e:
+    except Exception as e:
 
             category, details = classify_gemini_error(e)
 
