@@ -4214,7 +4214,7 @@ except Exception as e:
             local_guidance
         )
 
-        else:
+    else:
 
         st.error(
             "❌ Anevi Care could not generate AI guidance right now."
