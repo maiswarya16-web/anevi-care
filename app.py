@@ -4135,3 +4135,26 @@ if response and response.text:
     st.write(
         f"**⚠️ Risk Level:** {risk_priority}"
     )
+    
+    # =================================================
+    # SAVE CONSULTATION / VISIT HISTORY
+    # =================================================
+
+    try:
+        save_visit(
+            patient_id=patient_id,
+            complaint=main_complaint,
+            temperature=temperature,
+            blood_pressure=blood_pressure,
+            blood_sugar=blood_sugar,
+            weight=weight,
+            pulse_rate=pulse_rate,
+            spo2=spo2,
+            risk_level=risk_priority,
+            notes=response.text
+        )
+
+        st.success("✅ Consultation saved successfully.")
+
+    except Exception as e:
+        st.error(f"⚠️ Could not save consultation: {e}")
