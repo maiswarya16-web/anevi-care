@@ -4157,7 +4157,6 @@ The worker should be able to read the response in approximately
 
 Be concise. Be practical. Be safe.
 """
-
 # =================================================
 # GEMINI RESPONSE
 # =================================================
@@ -4217,7 +4216,9 @@ except Exception as e:
 
     else:
 
-        show_gemini_error(e)
+        st.error(
+            "❌ Anevi Care could not generate AI guidance right now."
+        )
 # =================================================
 # VISIT SUMMARY
 # =================================================
