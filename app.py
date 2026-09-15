@@ -215,6 +215,79 @@ def get_relevant_knowledge(topic):
     """Return trusted knowledge for the selected health topic."""
     return KNOWLEDGE_BASE.get(topic, {})
 
+def get_local_fallback_guidance(topic, language):
+    """
+    Provide safe local guidance when Gemini is unavailable.
+    Uses the trusted Anevi Care knowledge base.
+    """
+
+    knowledge = get_relevant_knowledge(topic)
+
+    if not knowledge:
+        return (
+            "⚠️ AI guidance is temporarily unavailable.\n\n"
+            "Please check for warning signs and seek medical "
+            "evaluation if the patient is unwell or worsening."
+        )
+
+    warning_signs = knowledge.get(
+        "important_warning_signs",
+        []
+    )
+
+    health_worker_actions = knowledge.get(
+        "health_worker_actions",
+        []
+    )
+
+    urgent_referral = knowledge.get(
+        "urgent_referral",
+        []
+    )
+
+    lines = []
+
+    lines.append(
+        "🛡️ LOCAL SAFETY GUIDANCE"
+    )
+
+    lines.append(
+        "\n⚠️ Warning signs:"
+    )
+
+    if isinstance(warning_signs, list):
+        for item in warning_signs:
+            lines.append(f"- {item}")
+    elif warning_signs:
+        lines.append(f"- {warning_signs}")
+
+    lines.append(
+        "\n💡 Health worker actions:"
+    )
+
+    if isinstance(health_worker_actions, list):
+        for item in health_worker_actions:
+            lines.append(f"- {item}")
+    elif health_worker_actions:
+        lines.append(f"- {health_worker_actions}")
+
+    lines.append(
+        "\n🏥 Referral:"
+    )
+
+    if isinstance(urgent_referral, list):
+        for item in urgent_referral:
+            lines.append(f"- {item}")
+    elif urgent_referral:
+        lines.append(f"- {urgent_referral}")
+
+    lines.append(
+        "\n⚠️ This is local safety guidance, not a diagnosis "
+        "or prescription."
+    )
+
+    return "\n".join(lines)
+
 # =========================================================
 # Anevi CareDARK UI
 # =========================================================
