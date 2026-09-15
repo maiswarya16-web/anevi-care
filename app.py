@@ -317,28 +317,55 @@ def show_gemini_error(error):
     if category == "limit":
         st.warning("⏳ Gemini API request limit reached.")
         st.info(
-            "The local health red-flag checker still works. "
-            "Please try again after the Gemini limit is available."
+            "Anevi Care's local safety system is still available. "
+            "You can continue checking emergency warning signs."
         )
 
     elif category == "temporary":
-        st.warning("⚠️ Anevi Care's AI service is temporarily unavailable.")
-        st.info("Please try again shortly.")
+        st.warning(
+            "⚠️ Anevi Care AI is temporarily unavailable."
+        )
+
+        st.info(
+            "The AI service is currently busy or unavailable. "
+            "Anevi Care's local safety system is still active."
+        )
+
+        st.markdown(
+            """
+            ### 🛡️ Local Safety Mode
+
+            You can still use:
+            - 🚨 Emergency warning-sign detection
+            - 🩹 First-aid safety checks
+            - ⚠️ Local risk prioritization
+            - 🏥 Referral guidance
+
+            Please try the AI consultation again when connectivity
+            or the AI service becomes available.
+            """
+        )
 
     elif category == "model":
-        st.error(f"❌ Gemini model '{MODEL_NAME}' was not found.")
+        st.error(
+            f"❌ Gemini model '{MODEL_NAME}' was not found."
+        )
 
     elif category == "auth":
-        st.error("❌ Gemini API authentication failed.")
-        st.info("Check GEMINI_API_KEY in Streamlit Secrets.")
+        st.error(
+            "❌ Gemini API authentication failed."
+        )
+        st.info(
+            "Check GEMINI_API_KEY in Streamlit Secrets."
+        )
 
     else:
-        st.error("❌ Anevi Careencountered a technical error.")
+        st.error(
+            "❌ Anevi Care encountered a technical error."
+        )
 
     with st.expander("Technical error details"):
         st.code(details)
-
-
 # =========================================================
 # MULTILINGUAL UI TEXT
 # =========================================================
