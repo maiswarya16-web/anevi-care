@@ -4171,7 +4171,34 @@ Be concise. Be practical. Be safe.
 
         except Exception as e:
 
-            show_gemini_error(e)
+    category, details = classify_gemini_error(e)
+
+    if category == "temporary":
+
+        st.warning(
+            "⚠️ Anevi Care AI is temporarily unavailable."
+        )
+
+        st.info(
+            "🛡️ Switching to Anevi Care Local Safety Mode."
+        )
+
+        local_guidance = get_local_fallback_guidance(
+            topic,
+            language
+        )
+
+        st.success(
+            "🛡️ Local Safety Guidance"
+        )
+
+        st.markdown(
+            local_guidance
+        )
+
+    else:
+
+        show_gemini_error(e)
 
     
 # =================================================
