@@ -3995,9 +3995,9 @@ Language context: {language}
             # Stop Gemini response
             st.stop()
 
-        # =================================================
-        # GEMINI PROMPT
-        # =================================================
+# =================================================
+# GEMINI PROMPT
+# =================================================
 
         trusted_knowledge = get_relevant_knowledge(topic)
 
