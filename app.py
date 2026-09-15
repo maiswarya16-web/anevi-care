@@ -19,6 +19,56 @@ def get_db_connection():
         check_same_thread=False
     )
 
+def save_visit(
+    patient_id,
+    complaint,
+    temperature,
+    blood_pressure,
+    blood_sugar,
+    weight,
+    pulse_rate,
+    spo2,
+    risk_level,
+    notes
+):
+    conn = get_db_connection()
+    cursor = conn.cursor()
+
+    cursor.execute(
+        """
+        INSERT INTO visits (
+            patient_id,
+            visit_date,
+            complaint,
+            temperature,
+            blood_pressure,
+            blood_sugar,
+            weight,
+            pulse_rate,
+            spo2,
+            risk_level,
+            notes
+        )
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """,
+        (
+            patient_id,
+            datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            complaint,
+            temperature,
+            blood_pressure,
+            blood_sugar,
+            weight,
+            pulse_rate,
+            spo2,
+            risk_level,
+            notes
+        )
+    )
+
+    conn.commit()
+    conn.close()
+
 def get_patient_by_id(patient_id):
 
     conn = get_db_connection()
