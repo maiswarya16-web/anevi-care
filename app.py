@@ -4214,11 +4214,28 @@ except Exception as e:
             local_guidance
         )
 
-    else:
+        else:
 
         st.error(
             "❌ Anevi Care could not generate AI guidance right now."
         )
+
+        st.write(
+            "Error category:"
+        )
+
+        st.code(
+            category
+        )
+
+        st.write(
+            "Technical details:"
+        )
+
+        st.code(
+            details
+        )
+    
 # =================================================
 # VISIT SUMMARY
 # =================================================
