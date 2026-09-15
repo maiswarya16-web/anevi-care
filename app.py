@@ -4140,35 +4140,35 @@ The worker should be able to read the response in approximately
 Be concise. Be practical. Be safe.
 """
 
-        # =================================================
-        # GEMINI RESPONSE
-        # =================================================
+# =================================================
+# GEMINI RESPONSE
+# =================================================
 
-        response = None
+response = None
 
-        try:
+try:
 
-            with st.spinner(
-                "🩺 Anevi Care is preparing guidance..."
-            ):
+    with st.spinner(
+        "🩺 Anevi Care is preparing guidance..."
+    ):
 
-                response = call_gemini(prompt)
+        response = call_gemini(prompt)
 
-            if response and response.text:
+    if response and response.text:
 
-                st.success(
-                    ui["guidance"]
-                )
+        st.success(
+            ui["guidance"]
+        )
 
-                st.write(
-                    response.text
-                )
+        st.write(
+            response.text
+        )
 
-            else:
+    else:
 
-                st.warning(
-                    "⚠️ could not generate a response right now."
-                )
+        st.warning(
+            "⚠️ Could not generate a response right now."
+        )
 
 except Exception as e:
 
@@ -4200,8 +4200,6 @@ except Exception as e:
     else:
 
         show_gemini_error(e)
-
-    
 # =================================================
 # VISIT SUMMARY
 # =================================================
