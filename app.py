@@ -3689,7 +3689,7 @@ Language context: {language}
 
     def show_gemini_error(error):
 
-    category, details = classify_gemini_error(error)
+        category, details = classify_gemini_error(error)
 
     if category == "limit":
 
