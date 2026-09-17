@@ -3982,6 +3982,9 @@ Language context: {language}
 
 trusted_knowledge = get_relevant_knowledge(topic)
 
+risk_priority = "Routine"
+risk_instruction = "No local emergency red-flag keyword was detected. Continue with the consultation and monitor for warning signs."
+
 prompt = f"""
 You are Anevi Care AI Health Agent.
 
