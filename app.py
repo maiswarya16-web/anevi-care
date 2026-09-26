@@ -3592,15 +3592,6 @@ if not ask_clicked:
 final_question = question.strip()
 
 # =====================================================
-# PREPARE FINAL QUESTION
-# =====================================================
-
-final_question = st.session_state.get(
-    "voice_question",
-    ""
-)
-
-# =====================================================
 # VOICE TRANSCRIPTION
 # =====================================================
 
@@ -3747,21 +3738,19 @@ Language context: {language}
 
         st.code(details)
                 
-    # =====================================================
-    # USE LAST SUCCESSFUL VOICE TRANSCRIPTION
-    # =====================================================
+# =====================================================
+# USE LAST SUCCESSFUL VOICE TRANSCRIPTION
+# =====================================================
 
-    if (
-        not final_question
-        and st.session_state.voice_question
-    ):
-
-        final_question = (
-            st.session_state.voice_question.strip()
-        )
-
-        st.session_state.voice_question = ""
-
+if (
+    not final_question
+    and st.session_state.get("voice_question", "")
+):
+    final_question = (
+        st.session_state.voice_question.strip()
+    )
+    st.session_state.voice_question = ""
+    
     # =====================================================
     # EMPTY QUESTION
     # =====================================================
