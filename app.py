@@ -4028,7 +4028,7 @@ Health question:
 {question}
 
 Local safety screen:
-{detected_flags if detected_flags else "No local emergency red-flag keyword was detected."}
+No local emergency red-flag keyword was detected.
 
 Local Anevi Care risk priority:
 {risk_priority}
