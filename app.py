@@ -3575,13 +3575,21 @@ question = st.text_area(
     placeholder="Describe the patient's health problem or ask your question...",
     height=120
 )
-if st.button(
+
+ask_clicked = st.button(
     ui["button"],
     type="primary",
-    key="ask_Anevi Care_button",
-):
+    key="ask_Anevi_Care_button",
+)
 
-    final_question = question.strip()
+# =====================================================
+# ONLY RUN CONSULTATION AFTER USER CLICKS ASK
+# =====================================================
+
+if not ask_clicked:
+    st.stop()
+
+final_question = question.strip()
 
 # =====================================================
 # PREPARE FINAL QUESTION
