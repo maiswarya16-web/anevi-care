@@ -3671,6 +3671,8 @@ if (
             final_question,
         )
 
+        st.write("DEBUG RISK:", risk_priority)
+
         # =================================================
         # RISK INSTRUCTION
         # =================================================
