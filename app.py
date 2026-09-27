@@ -3759,7 +3759,7 @@ if (
         st.warning(ui["empty"])
     else:
         st.info(
-            f"📝 Question received:\n\n{question}"
+            f"📝 Question received:\n\n{final_question}"
         )
 
         # =================================================
