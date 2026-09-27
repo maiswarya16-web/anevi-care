@@ -3756,11 +3756,8 @@ if (
     # =====================================================
 
     if not final_question:
-
         st.warning(ui["empty"])
-
     else:
-
         st.info(
             f"📝 Question received:\n\n{question}"
         )
